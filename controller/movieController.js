@@ -1,11 +1,11 @@
-import movieModel from "../models/movieModels";
+import movieModel from "../models/movieModels.js";
 
 export const listMovie = async (req, res) => {
     try {
         const data = await movieModel.find({})
 
         res.status(200).json({
-            message: "Berhasil mendapatkan data movie",
+            message: "Berhasil, LIST MOVIE:",
             data: data
         })
 
@@ -48,7 +48,8 @@ export const updateMovie = async (req, res) => {
 
         if (!id) {
             return res.status(500).json({
-                message: "ID salah, masukan id yang benar."
+                message: "ID salah, masukan id yang benar.",
+                data: null
             })
         }
 
@@ -60,7 +61,7 @@ export const updateMovie = async (req, res) => {
 
         if (!response) {
             return res.status(404).json ({
-                message: "Informasi data movie tidak gagal diupdate",
+                message: "Informasi data movie gagal diupdate",
                 data: null
             })
         }
@@ -88,7 +89,7 @@ export const deleteMovie = async (req, res) => {
             })
         }
 
-        const response = await movieModel.findByIdandDelete(id)
+        const response = await movieModel.findByIdAndDelete(id)
 
         if (!response) {
             return res.status(404).json ({
