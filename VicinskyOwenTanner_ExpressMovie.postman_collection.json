@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "7df30815-1f82-4d90-93be-39033fe3d42b",
+		"name": "VicinskyOwenTanner_ExpressMovie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49110192",
+		"_collection_link": "https://vicinskyowentanner-2327240031-3893896.postman.co/workspace/VICINSKY-OWEN-TANNER-2327240031~7f09fd48-1895-4858-85c0-b51160edd75f/collection/49110192-7df30815-1f82-4d90-93be-39033fe3d42b?action=share&source=collection_link&creator=49110192"
+	},
+	"item": [
+		{
+			"name": "moviePOST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\" : \"Avengers - Endgame\",\r\n    \"tahunrilis\" : \"Tahun 2019\",\r\n    \"sutradara\": \"Anthony & Joe Russo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movieGET",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "moviePUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\" : \"Avengers - Endgame\",\r\n    \"tahunrilis\" : \"2019\",\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/movies/68fcf9e3215dfc072a25c332",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies",
+						"68fcf9e3215dfc072a25c332"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movieDELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\" : \"Avengers - Endgame\",\r\n    \"tahunrilis\" : \"Tahun 2019\",\r\n    \"sutradara\": \"Anthony & Joe Russo\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/movies/68fcf9e3215dfc072a25c332",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies",
+						"68fcf9e3215dfc072a25c332"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
