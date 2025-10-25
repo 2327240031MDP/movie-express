@@ -14,5 +14,13 @@
     "express": "^5.1.0",
     "mongoose": "^8.19.2",
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2327240031MDP/movie-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2327240031MDP/movie-express/issues"
+  },
+  "homepage": "https://github.com/2327240031MDP/movie-express#readme"
 }

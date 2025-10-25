@@ -2,6 +2,8 @@ import express from "express";
 
 const app = express()
 
+app.use(xpress.json())
+
 app.get("/", (req, res) => {
     res.status(200).json({
         message: "OK"
