@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "6179e879-0f3f-4098-bef2-824c367f87c3",
+		"name": "VicinskyOwenTanner-MovieExpress&UserModel",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49110192",
+		"_collection_link": "https://vicinskyowentanner-2327240031-3893896.postman.co/workspace/VICINSKY-OWEN-TANNER-2327240031~7f09fd48-1895-4858-85c0-b51160edd75f/collection/49110192-6179e879-0f3f-4098-bef2-824c367f87c3?action=share&source=collection_link&creator=49110192"
+	},
+	"item": [
+		{
+			"name": "userSignUP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signup"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "userSignIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "moviePOST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjkyNzBlOGI2OGFkYTU3NDdjNjMzNDRjIiwidXNlcm5hbWUiOiJWaWNpbnNreSBPd2VuIiwiaWF0IjoxNzY0MTY3MzE0LCJleHAiOjE3NjQxNzQ1MTR9.IR8pheQbYOfQoZV132clm8r6gsdWcbohFaots6xiMSw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\" : \"Avengers Endgame\",\r\n    \"tahunRilis\" : \"Tahun 2019\",\r\n    \"sutradara\": \"Anthony & Joe Russo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movieGET",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "moviePUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\" : \"Avengers - Endgame\",\r\n    \"tahunrilis\" : \"2019\",\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/movies/68fcf9e3215dfc072a25c332",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies",
+						"68fcf9e3215dfc072a25c332"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movieDELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"judul\" : \"Avengers - Endgame\",\r\n    \"tahunrilis\" : \"Tahun 2019\",\r\n    \"sutradara\": \"Anthony & Joe Russo\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/movies/68fcf9e3215dfc072a25c332",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies",
+						"68fcf9e3215dfc072a25c332"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
