@@ -4,9 +4,9 @@ import { getJwtToken } from "../utils/jwtUtil.js";
 
 export const signIn = async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
 
-        if (!username || !password) {
+        if (!email || !password) {
             return res.status(400).send({
                 error: 'Data dan password wajib diisi',
                 data: null
@@ -15,7 +15,7 @@ export const signIn = async (req, res) => {
 
         const user = await UserModel.findOne({ email });
         if (!user) {
-            return res.status(404).send({
+            return res.status(400).send({
                 error: 'Email atau password salah',
                 data: null
             })
@@ -23,7 +23,7 @@ export const signIn = async (req, res) => {
 
         const isMatch = await verifyPassword(password, user.password);
         if (!isMatch) {
-            return res.status(404).send({
+            return res.status(400).send({
                 error: 'Password salah',
                 data: null
             })
@@ -55,11 +55,11 @@ export const signUp = async (req, res) => {
             })
         }
 
-        const hashedPassword = await hashedPassword(password);
+        const hashedPassword = await hashPassword(password);
         const newUser = await UserModel.create({
             username,
             email,
-            password: hashPassword
+            password: hashedPassword
         });
 
         if (newUser) {

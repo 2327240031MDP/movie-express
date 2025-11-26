@@ -7,6 +7,6 @@ export const getJwtToken = (user_id, username) => {
     }
 
     return jwt.sign(payload, "APP_JWT_SECRET", {
-        exporesIn: '15m'
+        expiresIn: '2h'
     })
 }

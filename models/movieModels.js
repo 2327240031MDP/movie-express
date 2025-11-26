@@ -20,7 +20,7 @@ const movieSchema = new mongoose.Schema (
             trim: true
         },
         createdBy: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Types.ObjectId,
             ref: userModel,
         }
     },
@@ -29,6 +29,7 @@ const movieSchema = new mongoose.Schema (
     }
 )
 
-const movieModel = new mongoose.model("movie", movieSchema)
+const movieModel = mongoose.models.movie || mongoose.model("movie", movieSchema)
+//Menggunakan format ini dikarenakan ada kesalahan throw new _mongoose.Error.OverwriteModelError(name); OverwriteModelError: Cannot overwrite `movie` model once compiled.
 
 export default movieModel

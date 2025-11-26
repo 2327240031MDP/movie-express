@@ -24,6 +24,6 @@ const userSchema = new mongoose.Schema (
     }
 )
 
-const userModel = new mongoose.model("movie", userSchema)
+const userModel = new mongoose.model("users", userSchema)
 
 export default userModel

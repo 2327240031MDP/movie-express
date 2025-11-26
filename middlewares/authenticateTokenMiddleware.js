@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 export const authenticateTokenMiddleware = (req, res, next) => {
-    const authHeader = req.headers.authorizartion;
+    const authHeader = req.headers.authorization;
     if (!authHeader) {
         return res.status(401).send({
             error: 'No token provided',
