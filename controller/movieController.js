@@ -2,7 +2,9 @@ import movieModel from "../models/movieModels.js";
 
 export const listMovie = async (req, res) => {
     try {
-        const data = await movieModel.find({})
+        const data = await movieModel.find({
+            createdBy: req.user?.user.id
+        })
 
         res.status(200).json({
             message: "Berhasil, LIST MOVIE:",
@@ -25,7 +27,8 @@ export const createNewMovie = async (req, res) => {
         const response = await movieModel.create({
             judul: request.judul,
             tahunRilis: request.tahunRilis,
-            sutradara: request.sutradara
+            sutradara: request.sutradara,
+            createdBy: req.user?.user.id
         })
 
         res.status(201).json({
@@ -56,7 +59,8 @@ export const updateMovie = async (req, res) => {
         const response = await movieModel.findByIdAndUpdate(id, {
             judul: request.judul,
             tahunRilis: request.tahunRilis,
-            sutradara: request.sutradara
+            sutradara: request.sutradara,
+            createdBy: req.user?.user.id
         })
 
         if (!response) {
@@ -89,7 +93,7 @@ export const deleteMovie = async (req, res) => {
             })
         }
 
-        const response = await movieModel.findByIdAndDelete(id)
+        const response = await movieModel.findByIdAndDelete({id, createdBy: req.user?.user.id})
 
         if (!response) {
             return res.status(404).json ({
